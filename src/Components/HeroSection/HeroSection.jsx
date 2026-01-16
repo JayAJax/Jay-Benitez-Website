@@ -489,27 +489,20 @@ const MainFooterContent = ({ isDarkMode }) => (
 );
 
 
-// --- Main Hero Component (Renamed from App to HeroSection) ---
+// --- Main Hero Component ---
 export default function HeroSection({ isDarkMode, toggleDarkMode }) {
-  // We removed the [isDarkMode, setIsDarkMode] from here 
-  // because it now comes from App.jsx as a prop!
-  
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const splineSceneUrl = "https://prod.spline.design/0eBTLc0gtuuH5PxE/scene.splinecode";
 
   return (
-    <div className={`min-h-screen flex flex-col overflow-x-hidden font-sans relative ${isDarkMode ? 'dark text-white' : 'text-black'}`}>
-      <GlobalStyles />
+    <div className={`min-h-screen flex flex-col overflow-x-hidden font-sans relative transition-colors duration-500 
+      ${isDarkMode ? 'bg-[#010118] text-white' : 'bg-gray-50 text-black'}`}>
       
-      <Spline 
-        scene={splineSceneUrl} 
-        className="absolute inset-0 z-0" 
-      />
+      <GlobalStyles />
       
       <div className="relative z-10 flex flex-col h-full w-full">
         <Header 
           isDarkMode={isDarkMode} 
-          onToggle={toggleDarkMode} // This uses the function from App.jsx
+          onToggle={toggleDarkMode} 
           isNavOpen={isNavOpen}
           onNavToggle={() => setIsNavOpen(!isNavOpen)}
         />
@@ -519,7 +512,7 @@ export default function HeroSection({ isDarkMode, toggleDarkMode }) {
         {isNavOpen && <MobileNav onNavToggle={() => setIsNavOpen(!isNavOpen)} isDarkMode={isDarkMode} />}
 
         <footer className={`border-t w-full transition-colors duration-300 
-          ${isDarkMode ? 'bg-black/80 text-white border-gray-700' : 'bg-gray-50/90 text-black border-gray-200'} backdrop-blur-sm`}>
+          ${isDarkMode ? 'bg-black/80 text-white border-gray-700' : 'bg-white/90 text-black border-gray-200'} backdrop-blur-sm`}>
           
           <div className={`w-full overflow-hidden border-b transition-colors duration-300 ${isDarkMode ? 'border-gray-900' : 'border-gray-200'}`}>
             <div className="flex w-max animate-ticker-slow">
@@ -549,4 +542,3 @@ export default function HeroSection({ isDarkMode, toggleDarkMode }) {
     </div>
   );
 }
-  
