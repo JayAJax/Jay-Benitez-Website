@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import HeroSection from './assets/Components/HeroSection/HeroSection'
-import Services from './assets/Components/Services/Services'
-import Portfolio from './assets/Components/Portfolio/Portfolio'
-import Contact from './assets/Components/Contact/Contact'
-import Footer from './assets/Components/Footer/Footer'
+import HeroSection from './Components/HeroSection/HeroSection'
+import Services from './Components/Services/Services'
+import Portfolio from './Components/Portfolio/Portfolio'
+import Contact from './Components/Contact/Contact'
+import Footer from './Components/Footer/Footer'
 
 
 const App = () => {
